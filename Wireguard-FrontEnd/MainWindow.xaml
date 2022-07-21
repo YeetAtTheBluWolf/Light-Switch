@@ -7,6 +7,8 @@
         mc:Ignorable="d"
         Title="MainWindow" Height="450" Width="800">
     <Grid>
+        <Slider Width="120"/>
+        <ComboBox x:Name="confFileComboBox" HorizontalAlignment="Left" Margin="33,379,0,0" VerticalAlignment="Top" Width="120" Text="" SelectionChanged="ConfFileComboBox_SelectionChanged"/>
 
     </Grid>
 </Window>

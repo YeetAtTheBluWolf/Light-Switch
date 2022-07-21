@@ -12,6 +12,7 @@ using System.Windows.Media;
 using System.Windows.Media.Imaging;
 using System.Windows.Navigation;
 using System.Windows.Shapes;
+using Wireguard_FrontEnd.Backend;
 
 namespace Wireguard_FrontEnd
 {
@@ -20,9 +21,25 @@ namespace Wireguard_FrontEnd
     /// </summary>
     public partial class MainWindow : Window
     {
+        private readonly VpnSelectionDetection _addToItem = new();
+
+
         public MainWindow()
         {
             InitializeComponent();
+            ConfAddItems();
+        }
+
+        private void ConfFileComboBox_SelectionChanged(object sender, SelectionChangedEventArgs e)
+        {
+            
+        }
+
+        private void ConfAddItems()
+        {
+            List<string> filesFound = _addToItem.FilesListed();
+            foreach (var t in filesFound)
+                confFileComboBox.Items.Add(t);
         }
     }
 }
