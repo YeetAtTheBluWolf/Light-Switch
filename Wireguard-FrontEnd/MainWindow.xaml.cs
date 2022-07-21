@@ -22,6 +22,7 @@ namespace Wireguard_FrontEnd
     public partial class MainWindow : Window
     {
         private readonly VpnSelectionDetection _addToItem = new();
+        public object? sent { get; set; }
 
 
         public MainWindow()
@@ -32,14 +33,28 @@ namespace Wireguard_FrontEnd
 
         private void ConfFileComboBox_SelectionChanged(object sender, SelectionChangedEventArgs e)
         {
-            
+            sent = sender.ToString();
+            StartTunnel.IsEnabled = sent != null;
         }
 
         private void ConfAddItems()
         {
-            List<string> filesFound = _addToItem.FilesListed();
+            var filesFound = _addToItem.FilesListed();
             foreach (var t in filesFound)
-                confFileComboBox.Items.Add(t);
+                ConfFileComboBox.Items.Add(t);
+        }
+
+        private void Start_Tunnel_Click(object sender, RoutedEventArgs e)
+        {
+            PowerShellStart.StartTunnelProcess(sent);
+            StartTunnel.Visibility = (Visibility)2;
+            StopTunnel.Visibility = (Visibility)0;
+        }
+
+        private void StopTunnel_Click(object sender, RoutedEventArgs e)
+        {
+            StartTunnel.Visibility = (Visibility)0;
+            StopTunnel.Visibility = (Visibility)2;
         }
     }
 }

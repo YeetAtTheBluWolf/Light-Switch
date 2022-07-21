@@ -11,12 +11,12 @@ namespace Wireguard_FrontEnd.Backend
     public class VpnSelectionDetection
     {
 
-        private static string _path = @"C:\Program Files\WireGuard\Data\Configurations";
-        private static readonly DirectoryInfo FileDetections = new(_path);
+        internal static string Path = @"C:\Program Files\WireGuard\Data\Configurations";
+        private static readonly DirectoryInfo FileDetections = new(Path);
 
         public VpnSelectionDetection(string path = @"C:\Program Files\WireGuard\Data\Configurations")
         {
-            _path = path;
+            Path = path;
         }
 
         public List<string> FilesListed()
@@ -25,10 +25,9 @@ namespace Wireguard_FrontEnd.Backend
             try
             {
                 if (FileDetections != null)
-                    foreach (var i in FileDetections.GetFiles())
-                    {
-                        filesDetected.Add(i.FullName);
-                    }
+                    foreach (var i in FileDetections.GetFiles("*.dpapi"))
+                        filesDetected.Add(i.Name);
+                    
 
             }
             catch (NullReferenceException e)
