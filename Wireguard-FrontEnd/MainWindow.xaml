@@ -5,10 +5,16 @@
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:local="clr-namespace:Wireguard_FrontEnd"
         mc:Ignorable="d"
-        Title="MainWindow" Height="450" Width="800">
+        Title="MainWindow" Height="178" Width="286">
     <Grid>
-        <Slider Width="120"/>
-        <ComboBox x:Name="confFileComboBox" HorizontalAlignment="Left" Margin="33,379,0,0" VerticalAlignment="Top" Width="120" Text="" SelectionChanged="ConfFileComboBox_SelectionChanged"/>
+        <Grid.ColumnDefinitions>
+            <ColumnDefinition Width="97*"/>
+            <ColumnDefinition Width="321*"/>
+            <ColumnDefinition Width="32*"/>
+        </Grid.ColumnDefinitions>
+        <ComboBox x:Name="ConfFileComboBox" HorizontalAlignment="Left" Margin="31,111,0,0" VerticalAlignment="Top" Width="112" Text="" SelectionChanged="ConfFileComboBox_SelectionChanged" Height="22" Grid.ColumnSpan="2"/>
+        <Button x:Name="StartTunnel" Grid.Column="1" Content="Start Tunnel" HorizontalAlignment="Left" Margin="102,111,0,0" VerticalAlignment="Top" Click="Start_Tunnel_Click" Height="20" Width="68"/>
+        <Button x:Name="StopTunnel" Grid.Column="1" Content="Stop Tunnel" HorizontalAlignment="Left" Margin="102,111,0,0" VerticalAlignment="Top" Height="20" Width="68" Click="StopTunnel_Click" Visibility="Collapsed"/>
 
     </Grid>
 </Window>
