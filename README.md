@@ -4,9 +4,15 @@ It adds a nice Graphical User Interface for users to manage their wireguard conn
 
 Project Status: Work in Progess
 
-future features include 
-starting and stopping VPN tunnel                                    Status: Incomplete
-The status of the VPN in a nice looking and simple interface        Status: Incomplete
+future features include:
+
+starting and stopping VPN tunnel
+
+Status: Incomplete
+
+The status of the VPN in a nice looking and simple interface
+
+Status: Incomplete
 
 This is written in C# for one of my first C# endeavors.
 This program needs to run in administrator to be able to detect files in config directory and to be able to start/stop the tunnel
