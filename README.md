@@ -9,8 +9,6 @@ It adds a nice Graphical User Interface for users to manage their wireguard conn
 1. starting and stopping VPN tunnel
 2. The status of the VPN in a nice looking and simple interface
 
-- [ ] Status
-
 ### [Author's Note] 
 This is written in C# for one of my first C# endeavors.
 This program needs to run in administrator to be able to detect files in config directory and to be able to start/stop the tunnel
