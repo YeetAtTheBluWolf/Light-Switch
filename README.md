@@ -16,5 +16,5 @@ This program needs to run in administrator to be able to detect files in config 
 I am open to any suggestions and fixes.
 
 ### [Branch and Versioning]
-Their is a sepperate branch called beta for new features and bug fixes.
+Their is a seperate branch called beta for new features and bug fixes.
 The main branch is for Long term support releases.
