@@ -22,6 +22,7 @@ namespace Wireguard_FrontEnd.Backend
         public List<string> FilesListed()
         {
             List<string> filesDetected = new List<string>();
+
             try
             {
                 if (FileDetections != null)
