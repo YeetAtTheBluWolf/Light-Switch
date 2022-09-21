@@ -13,6 +13,7 @@ using System.Windows.Media.Imaging;
 using System.Windows.Navigation;
 using System.Windows.Shapes;
 using Wireguard_FrontEnd.Backend;
+using PowershellForCSharp;
 
 namespace Wireguard_FrontEnd
 {
@@ -46,8 +47,8 @@ namespace Wireguard_FrontEnd
 
         private void Start_Tunnel_Click(object sender, RoutedEventArgs e)
         {
-            string output = PowerShellHandler.Command(" & \"C:\\Program Files\\WireGuard\\wireguard.exe\" /installtunnelservice \"C:\\Program Files\\WireGuard\\Data\\Configurations\\wg4.conf.dpapi\"");
-            Console.WriteLine(output);
+            PowershellHandler.RunCommand("& \'C:\\Program Files\\WireGuard\\wireguard.exe\' /installtunnelservice \'C:\\Program Files\\WireGuard\\Data\\Configurations\\" + sent + ".conf.dpapi\'", false, true, true, true);
+            //Console.WriteLine(output);
 
             StartTunnel.Visibility = (Visibility)2;
             StopTunnel.Visibility = (Visibility)0;
@@ -55,8 +56,8 @@ namespace Wireguard_FrontEnd
 
         private void StopTunnel_Click(object sender, RoutedEventArgs e)
         {
-            string output = PowerShellHandler.Command(" & \"C:\\Program Files\\WireGuard\\wireguard.exe\" /uninstalltunnelservice \"" + sent + "\"");
-            Console.WriteLine(output);
+            PowershellHandler.RunCommand("& \'C:\\Program Files\\WireGuard\\wireguard.exe\' /uninstalltunnelservice \"" + sent + "\"", false, true, true, true);
+            //Console.WriteLine(output);
 
             StartTunnel.Visibility = (Visibility)0;
             StopTunnel.Visibility = (Visibility)2;
