@@ -13,4 +13,10 @@
     <PackageReference Include="System.Management.Automation" Version="7.2.5" />
   </ItemGroup>
 
+  <ItemGroup>
+    <Reference Include="PowershellForCSharp">
+      <HintPath>..\..\powershellforcsharp\PowershellForCSharp\bin\Debug\net6.0\PowershellForCSharp.dll</HintPath>
+    </Reference>
+  </ItemGroup>
+
 </Project>
