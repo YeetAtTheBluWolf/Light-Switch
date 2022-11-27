@@ -8,20 +8,20 @@ using System.IO;
 
 namespace Wireguard_FrontEnd.Backend
 {
-    public class VpnSelectionDetection
+    public class ProfileDetector
     {
 
         internal static string Path = @"C:\Program Files\WireGuard\Data\Configurations";
         private static readonly DirectoryInfo FileDetections = new(Path);
 
-        public VpnSelectionDetection(string path = @"C:\Program Files\WireGuard\Data\Configurations")
+        public ProfileDetector(string path = @"C:\Program Files\WireGuard\Data\Configurations")
         {
             Path = path;
         }
 
         public List<string> FilesListed()
         {
-            List<string> filesDetected = new List<string>();
+            List<string> filesDetected = new();
 
             try
             {
