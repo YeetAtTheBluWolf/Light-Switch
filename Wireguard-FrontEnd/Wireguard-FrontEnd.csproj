@@ -6,6 +6,17 @@
     <RootNamespace>Wireguard_FrontEnd</RootNamespace>
     <Nullable>enable</Nullable>
     <UseWPF>true</UseWPF>
+    <ApplicationManifest>app.manifest</ApplicationManifest>
   </PropertyGroup>
+
+  <ItemGroup>
+    <PackageReference Include="System.Collections.NonGeneric" Version="4.3.0" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <Reference Include="PowershellForCSharp">
+      <HintPath>..\..\powershellforcsharp\PowershellForCSharp\bin\Debug\net6.0\PowershellForCSharp.dll</HintPath>
+    </Reference>
+  </ItemGroup>
 
 </Project>
