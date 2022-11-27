@@ -11,7 +11,7 @@ namespace Wireguard_FrontEnd.Backend
     public class ProfileDetector
     {
 
-        internal static string Path = @"C:\Program Files\WireGuard\Data\Configurations";
+        private static string Path = @"C:\Program Files\WireGuard\Data\Configurations";
         private static readonly DirectoryInfo FileDetections = new(Path);
 
         public ProfileDetector(string path = @"C:\Program Files\WireGuard\Data\Configurations")
@@ -28,8 +28,6 @@ namespace Wireguard_FrontEnd.Backend
                 if (FileDetections != null)
                     foreach (var i in FileDetections.GetFiles("*.dpapi"))
                         filesDetected.Add(i.Name);
-                    
-
             }
             catch (NullReferenceException e)
             {
