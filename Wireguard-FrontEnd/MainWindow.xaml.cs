@@ -8,7 +8,7 @@ using System.Diagnostics;
 
 namespace Wireguard_FrontEnd
 {
-    /// <summary>
+    /// <summary> Microsoft.NET.Sdk
     /// Interaction logic for MainWindow.xaml
     /// </summary>
     public partial class MainWindow : Window
