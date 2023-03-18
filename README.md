@@ -1,18 +1,24 @@
 # Wireguard-Non-Priviliged-User-Interface
 
-It adds a nice Graphical User Interface for users to manage their wireguard connection
+It allows a windows user to manage wireguard connections without explicit administrator privileges.
 
-# Project Status: Work in Progess
+# Project Status: Version 1.2
 
 ### future features include:
 
-1. starting and stopping VPN tunnel
-2. The status of the VPN in a nice looking and simple interface
+1. Allow the user to change the location of where the program finds the WG Configs.
+2. I want to add a status bar.
 
-### [Author's Note] 
-This is written in C# for one of my first C# endeavors.
-This program needs to run in administrator to be able to detect files in config directory and to be able to start/stop the tunnel
+### [Building and executing]
+You'll need to run Visual Studio in administrator.
+You'll need to install "Microsoft Visual Studio Installer Projects 2022" to build and run the installer.
 
+### [Warnings] 
+This program needs to run in administrator to be able to detect files in config directory and to be able to start/stop the tunnel.
+When click the buttons it will open a powershell program, and to check if it ran right type "wg show".
+Since you're going to be running this with administrator privileges, check the file hash when installing.
+
+### [Issues]
 I am open to any suggestions and fixes.
 
 ### [Branch and Versioning]

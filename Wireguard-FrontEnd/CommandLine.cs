@@ -1,11 +1,11 @@
 ﻿using System.Diagnostics;
 
-namespace Wireguard_FrontEnd.Backend
+namespace Wireguard_FrontEnd
 {
-    public class CommandLine
+    internal class CommandLine
     {
 
-        public static void RunCMD(string command)
+        internal static void RunCMD(string command)
         {
             Process cmd = new();
 
@@ -19,7 +19,7 @@ namespace Wireguard_FrontEnd.Backend
             cmd.StandardInput.WriteLine(command);
             cmd.StandardInput.Flush();
             cmd.StandardInput.Close();
-            cmd.WaitForExit();
+            cmd.Close();
         }
 
     }

@@ -2,7 +2,7 @@
 
 ## Supported Versions
 
-There is no supported version until I can get a solid foundation for this project.
+Current supported version is 1.2.
 
 ## Reporting a Vulnerability
 

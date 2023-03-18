@@ -1,7 +1,6 @@
 ﻿using System.Windows;
 using System.Windows.Controls;
 using System.Collections;
-using Wireguard_FrontEnd.Backend;
 using System.ComponentModel;
 using System.IO;
 using System.Diagnostics;
@@ -13,10 +12,10 @@ namespace Wireguard_FrontEnd
     /// </summary>
     public partial class MainWindow : Window
     {
-        private readonly ProfileDetector _addToItem = new();
-        public string? Sent { private get; set; }
+        private readonly ProfileDetector _addToItem = new(); 
         private readonly ArrayList ActiveScripts = new();
 
+        public string? Sent { private get; set; }
 
         public MainWindow()
         {
@@ -26,7 +25,6 @@ namespace Wireguard_FrontEnd
 
         protected override void OnClosing(CancelEventArgs e)
         {
-
             foreach (string s in ActiveScripts)
                 File.Delete(s);
             base.OnClosing(e);
@@ -43,6 +41,7 @@ namespace Wireguard_FrontEnd
         {
             foreach (var t in _addToItem.FilesListed())
                 ConfFileComboBox.Items.Add(t);
+            ConfFileComboBox.SelectedIndex = 0;
         }
 
         private void Start_Tunnel_Click(object sender, RoutedEventArgs e)
@@ -50,7 +49,7 @@ namespace Wireguard_FrontEnd
             if(Sent != null)
             {
                 OnandOffWG wG = new(Sent);
-                wG.CreateScript(true);
+                wG.CreateConnectScript();
                 CommandLine.RunCMD("powershell -Command \"Start-Process powershell -Verb runAs -ArgumentList '-ExecutionPolicy','Bypass','-noexit','-file','" + wG.OnFile + "'\"");
                 ActiveScripts.Add(wG.OnFile);
             }
@@ -61,7 +60,7 @@ namespace Wireguard_FrontEnd
             if (Sent != null)
             {
                 OnandOffWG wG = new(Sent);
-                wG.CreateScript(false);
+                wG.CreateDisconnectScript();
                 CommandLine.RunCMD("powershell -Command \"Start-Process powershell -Verb runAs -ArgumentList '-ExecutionPolicy', 'Bypass', '-noexit', '-file', ' " + wG.OffFile +  " '\"");
                 ActiveScripts.Add(wG.OffFile);
             }

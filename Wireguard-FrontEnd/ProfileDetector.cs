@@ -6,20 +6,21 @@ using System.Text;
 using System.Threading.Tasks;
 using System.IO;
 
-namespace Wireguard_FrontEnd.Backend
+namespace Wireguard_FrontEnd
 {
-    public class ProfileDetector
+    internal class ProfileDetector
     {
 
         private static string Path = @"C:\Program Files\WireGuard\Data\Configurations";
-        private static readonly DirectoryInfo FileDetections = new(Path);
 
-        public ProfileDetector(string path = @"C:\Program Files\WireGuard\Data\Configurations")
+        private readonly DirectoryInfo FileDetections = new(Path);
+
+        internal ProfileDetector(string path = @"C:\Program Files\WireGuard\Data\Configurations")
         {
             Path = path;
         }
 
-        public List<string> FilesListed()
+        internal List<string> FilesListed()
         {
             List<string> filesDetected = new();
 
